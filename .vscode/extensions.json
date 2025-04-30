@@ -1,6 +1,9 @@
 {
     "recommendations": [
-        "redhat.vscode-yaml",
+        "ms-python.vscode-pylance",
+        "wayou.vscode-todo-highlight",
+        "ms-python.isort",
+        "charliermarsh.ruff",
         "ms-python.python"
     ]
 }
