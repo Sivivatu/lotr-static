@@ -28,24 +28,16 @@ class TextNode:
 
 
 def text_node_to_html_node(text_node) -> LeafNode:
-    match text_node.text_type:
-        case TextType.TEXT.value:
-            return LeafNode(None, text_node.text)
-        case TextType.BOLD.value:
-            return LeafNode("b", text_node.text)
-        case TextType.ITALIC.value:
-            return LeafNode("i", text_node.text)
-        case TextType.CODE.value:
-            return LeafNode("code", text_node.text)
-        case TextType.LINK.value:
-            if text_node.url:
-                return LeafNode("a", text_node.text, {"href": text_node.url})
-            else:
-                return LeafNode("a", text_node.text)
-        case TextType.IMAGE.value:
-            if text_node.url:
-                return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
-            else:
-                return LeafNode("img", "", {"alt": text_node.text})
-        case _:
-            raise ValueError(f"Unknown text type: {text_node.text_type}")
+    if text_node.text_type == TextType.TEXT:
+        return LeafNode(None, text_node.text)
+    if text_node.text_type == TextType.BOLD:
+        return LeafNode("b", text_node.text)
+    if text_node.text_type == TextType.ITALIC:
+        return LeafNode("i", text_node.text)
+    if text_node.text_type == TextType.CODE:
+        return LeafNode("code", text_node.text)
+    if text_node.text_type == TextType.LINK:
+        return LeafNode("a", text_node.text, {"href": text_node.url})
+    if text_node.text_type == TextType.IMAGE:
+        return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
+    raise ValueError(f"invalid text type: {text_node.text_type}")
