@@ -1,5 +1,15 @@
 {
     "cSpell.words": [
         "htmlnode"
-    ]
+    ],
+    "python.testing.unittestEnabled": true,
+    "python.testing.cwd": "${workspace}",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./src",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false
 }
