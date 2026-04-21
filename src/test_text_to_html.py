@@ -19,7 +19,7 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         ]
         result = split_nodes_delimiter(nodes, "**", TextType.BOLD)
         self.assertEqual(result[1].text, "**")
-        self.assertEqual(result[1].text_type, TextType.BOLD)
+        self.assertEqual(result[1].text_type, TextType.BOLD.value)
         self.assertEqual(result[0], nodes[0])
         self.assertEqual(result[2], nodes[2])
 
@@ -31,10 +31,10 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         ]
         result = split_nodes_delimiter(nodes, "**", TextType.ITALIC)
         self.assertEqual(result[0].text, "**")
-        self.assertEqual(result[0].text_type, TextType.ITALIC)
+        self.assertEqual(result[0].text_type, TextType.ITALIC.value)
         self.assertEqual(result[1], nodes[1])
         self.assertEqual(result[2].text, "**")
-        self.assertEqual(result[2].text_type, TextType.ITALIC)
+        self.assertEqual(result[2].text_type, TextType.ITALIC.value)
 
     def test_empty_list(self):
         result = split_nodes_delimiter([], "**", TextType.BOLD)
@@ -47,7 +47,7 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         ]
         result = split_nodes_delimiter(nodes, "**", TextType.BOLD)
         self.assertEqual(result[1].text, "**")
-        self.assertEqual(result[1].text_type, TextType.BOLD)
+        self.assertEqual(result[1].text_type, TextType.BOLD.value)
         self.assertEqual(result[0], nodes[0])
 
 if __name__ == "__main__":
